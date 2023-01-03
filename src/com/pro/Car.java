@@ -1,3 +1,4 @@
+package com.pro;
 
 public class Car {
     private void startElectricity() {
@@ -13,7 +14,7 @@ public class Car {
     }
 
     public void start() {
-        System.out.println("Вызываем приватные методы: startElectricity, startCommand и startFuelSystem");
+        System.out.println("Вызываем private методы: startElectricity, startCommand и startFuelSystem");
         startElectricity();
         startCommand();
         startFuelSystem();

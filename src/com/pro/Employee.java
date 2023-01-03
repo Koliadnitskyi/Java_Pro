@@ -1,3 +1,5 @@
+package com.pro;
+
 public class Employee {
     private String surnameNamePatronymic;
     private String jobEitle;

@@ -1,27 +1,46 @@
 package com.pro;
 
 public class Employee {
-    private String surnameNamePatronymic;
+    private String firstName;
+    private String middleName;
+    private String lastName;
     private String jobEitle;
     private String email;
     private int phone;
     private int age;
 
-    public Employee(String surnameNamePatronymic, String jobEitle, String email, int phone, int age) {
-        this.surnameNamePatronymic = surnameNamePatronymic;
+    public Employee(String firstName, String middleName, String lastName, String jobEitle, String email, int phone, int age) {
+        this.firstName = firstName;
+        this.middleName = middleName;
+        this.lastName = lastName;
         this.jobEitle = jobEitle;
         this.email = email;
         this.phone = phone;
         this.age = age;
-
     }
 
-    public String getSurnameNamePatronymic() {
-        return surnameNamePatronymic;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setSurnameNamePatronymic(String surnameNamePatronymic) {
-        this.surnameNamePatronymic = surnameNamePatronymic;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getMiddleName() {
+        return middleName;
+    }
+
+    public void setMiddleName(String middleName) {
+        this.middleName = middleName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getJobEitle() {
@@ -56,6 +75,8 @@ public class Employee {
         this.age = age;
     }
 
-    public static class Car {
+    @Override
+    public String toString() {
+        return "Employee{" + "firstName='" + firstName + '\'' + ", middleName='" + middleName + '\'' + ", lastName='" + lastName + '\'' + ", jobEitle='" + jobEitle + '\'' + ", email='" + email + '\'' + ", phone=" + phone + ", age=" + age + '}';
     }
 }

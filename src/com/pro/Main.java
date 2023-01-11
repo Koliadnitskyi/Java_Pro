@@ -6,6 +6,7 @@ public class Main {
         SameName sameName2 = new SameName(); //Создание объекта класса SameName из пакета com.pro
         Car car = new Car(); //Создание объекта класса Car из пакета com.pro
         car.start(); //Вызов public метода start класса Car
-        Employee employee = new Employee("Колядніцький Валерій Вікторович", "учень Хілуль", "0164zeos20081@gmail.com", 952181776, 39); ////Создание объекта класса Employee из пакета com.pro
+        Employee employee = new Employee("Колядніцький", "Валерій", "Вікторович", "учень Хілєль", "0164zeos20081@gmail.com", 952181776, 39);//Создание объекта класса Employee из пакета com.pro
+        System.out.println(employee);
     }
 }

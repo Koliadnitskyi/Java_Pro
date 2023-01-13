@@ -1,13 +1,15 @@
-public class Animals {
+public abstract class Animals {
+    static int createdAnimalCounter = 0;
+
     public Animals() {
-        Main.countOfCreatedAnimals();
+        countOfCreatedAnimals();
     }
 
-    public void run(int obstacleLength) {
-        System.out.println("The animals ran: " + obstacleLength + " метров");
+    public static void countOfCreatedAnimals() {
+        createdAnimalCounter++;
     }
 
-    public void swim(int obstacleLengthTwo) {
-        System.out.println("The animals swam: " + obstacleLengthTwo + " метров");
-    }
+    public abstract void run(int obstacleLength);
+
+    public abstract void swim(int obstacleLengthTwo);
 }

@@ -1,9 +1,4 @@
 public class Cat extends Animals {
-
-    public Cat() {
-        Main.countOfCreatedAnimals();
-    }
-
     @Override
     public void run(int obstacleLength) {
         if (obstacleLength <= 200) System.out.println("The cat ran: " + obstacleLength + " метров");

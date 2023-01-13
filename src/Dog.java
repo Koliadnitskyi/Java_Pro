@@ -1,8 +1,4 @@
 public class Dog extends Animals {
-    public Dog() {
-        Main.countOfCreatedAnimals();
-    }
-
     @Override
     public void run(int obstacleLength) {
         if (obstacleLength <= 500) System.out.println("The dog ran: " + obstacleLength + " метров");

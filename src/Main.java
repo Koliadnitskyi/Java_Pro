@@ -6,6 +6,6 @@ public class Main {
         Cat olli = new Cat();
         olli.run(13);
         olli.swim(22);
-        System.out.println("Total cats, dogs and animals created: " + Animals.createdAnimalCounter);
+        System.out.println("Total cats, dogs and animals created: " + Animals.getCreatedAnimalCounter());
     }
 }

@@ -26,7 +26,7 @@ public class Main {
         test.add("Горілка");
         test.add("Дім");
         test.add("Пес");
-        Implements homework = new Implements();
+        ImplementsСounting homework = new ImplementsСounting();
         homework.countOccurance(test, "Дім"); // виклик методу countOccurance, п.1. завдання
 
         int[] testTwo = {2, 4, 1, 7, 7, 1};
@@ -40,8 +40,6 @@ public class Main {
 
         List<String> newListTestThree = homework.findOccurance(test); // виклик методу findOccurance, п.4.*** завдання
         System.out.println("\nMетод findOccurance, п.4.*** завдання: ");
-        for (String s : newListTestThree) {
-            System.out.println(s);
-        }
+        newListTestThree.forEach(System.out::println);
     }
 }

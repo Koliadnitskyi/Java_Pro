@@ -8,4 +8,8 @@ public interface Сounting {
     void calcOccurance(List<String> array);
 
     List<String> findOccurance(List<String> array);
+
+    List<Integer> toList(int[] array);
+
+    List<Integer> findUnique(List<Integer> array);
 }

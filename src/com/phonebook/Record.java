@@ -1,6 +1,6 @@
 package com.phonebook;
 
-public class Record extends Action {
+public class Record extends Act {
 
     public Record(String name, int telephone) {
         super(name, telephone);

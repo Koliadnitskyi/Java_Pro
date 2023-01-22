@@ -2,11 +2,11 @@ package com.phonebook;
 
 import java.util.List;
 
-public abstract class Action {
+public abstract class Act {
     private final String name;
     private final int telephone;
 
-    public Action(String name, int telephone) {
+    public Act(String name, int telephone) {
         this.name = name;
         this.telephone = telephone;
     }

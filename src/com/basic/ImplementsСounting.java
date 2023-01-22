@@ -31,11 +31,11 @@ public class ImplementsСounting implements Сounting {
         for (String s : test) {
             int counter = 0;
             for (String value : array) {
-                if (s.equals(value)) counter++;
-                {
-                    System.out.println(s + ": " + counter);
+                if (s.equals(value)) {
+                    counter++;
                 }
             }
+            System.out.println(s + ": " + counter);
         }
     }
 

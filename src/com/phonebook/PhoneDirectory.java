@@ -19,27 +19,23 @@ public class PhoneDirectory extends Directory {
         Record ten = new Record("Лендольф", 660987654); // створення об'єкту (екземпляру) класу Record
         Record eleven = new Record("Кендольф", 998761211); // створення об'єкту (екземпляру) класу Record
 
-        Record.print(Record.testRecord); // друк в консоль всіх об'єктів (екземплярів) ArrayList testRecord з класу Record
+        Record.print(Directory.testRecord); // друк в консоль всіх об'єктів (екземплярів) ArrayList testRecord з класу Record
 
-        List<PhoneDirectory> testPhoneDirectoryTwo = add(Record.testRecord); // виклик методу add, п.5. завдання
+        List<PhoneDirectory> testPhoneDirectoryTwo = add(Directory.testRecord); // виклик методу add, п.5. завдання
         print(testPhoneDirectoryTwo); // друк в консоль всіх об'єктів (екземплярів) ArrayList testPhoneDirectoryTwo з класу PhoneDirectory
 
         Integer telefone = find("Лендольф", testPhoneDirectoryTwo); // виклик методу find, п.6. завдання
         System.out.println(telefone); // друк в консоль результату виконання методу find
 
         List<Integer> testPhoneDirectoryFour = findAll("Рудольф", testPhoneDirectoryTwo); // виклик методу findAll, п.8.* завдання
-        for (Integer integer : testPhoneDirectoryFour)
-            System.out.print(integer + ", "); // друк в консоль результату виконання методу findAll
+        for (Integer integer : testPhoneDirectoryFour) {
+            System.out.print(integer + ", ");
+        } // друк в консоль результату виконання методу findAll
     }
 
     @Override
     public String toString() {
-        return "PhoneDirectory: {" + "record=" + super.getRecord() + '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        return super.equals(o);
+        return "PhoneDirectory{" + "record=" + getRecord() + '}';
     }
 }
 

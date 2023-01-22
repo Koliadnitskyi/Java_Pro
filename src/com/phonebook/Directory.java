@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Objects;
 
 public abstract class Directory {
+    static List<Record> testRecord = new ArrayList<>();
     private final Record record;
 
     public Directory(Record record) {
@@ -13,34 +14,33 @@ public abstract class Directory {
 
     public static List<PhoneDirectory> add(List<Record> testing) {
         List<PhoneDirectory> testPhoneDirectory = new ArrayList<>();
-        if (testing != null) {
-            for (Record o : testing) testPhoneDirectory.add(new PhoneDirectory(o));
+        for (Record o : testing) {
+            testPhoneDirectory.add(new PhoneDirectory(o));
         }
         return testPhoneDirectory;
     }
 
-    public static Integer find(String nameMethod, List<PhoneDirectory> list) {
-        Integer status = null;
-        if (nameMethod != null || list != null) {
-            for (PhoneDirectory phoneDirectory : list)
-                if (phoneDirectory.getRecord().getName().equals(nameMethod)) {
-                    status = phoneDirectory.getRecord().getTelephone();
-                    break;
-                }
+    public static int find(String nameMethod, List<PhoneDirectory> list) {
+        int status = 0;
+        for (PhoneDirectory phoneDirectory : list) {
+            if (phoneDirectory.getRecord().getName().equals(nameMethod)) {
+                status = phoneDirectory.getRecord().getTelephone();
+                break;
+            }
         }
         return status;
     }
 
-    public static void print(List<? extends Directory> list) {
-        if (list != null) for (Directory directory : list) System.out.println(directory);
+    public static void print(List<PhoneDirectory> list) {
+        list.forEach(System.out::println);
     }
 
     public static List<Integer> findAll(String nameMethodTwo, List<PhoneDirectory> listTwo) {
         List<Integer> testPhoneDirectoryThree = new ArrayList<>();
-        if (nameMethodTwo != null || listTwo != null) {
-            for (PhoneDirectory phoneDirectory : listTwo)
-                if (phoneDirectory.getRecord().getName().equals(nameMethodTwo))
-                    testPhoneDirectoryThree.add(phoneDirectory.getRecord().getTelephone());
+        for (PhoneDirectory phoneDirectory : listTwo) {
+            if (phoneDirectory.getRecord().getName().equals(nameMethodTwo)) {
+                testPhoneDirectoryThree.add(phoneDirectory.getRecord().getTelephone());
+            }
         }
         if (testPhoneDirectoryThree.size() == 0) testPhoneDirectoryThree.add(null);
         return testPhoneDirectoryThree;
@@ -49,18 +49,15 @@ public abstract class Directory {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Directory directory = (Directory) o;
         return Objects.equals(record, directory.record);
     }
 
     public Record getRecord() {
         return record;
-    }
-
-    @Override
-    public String toString() {
-        return "Directory{" + "record=" + record + '}';
     }
 }
 

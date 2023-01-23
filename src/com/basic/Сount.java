@@ -3,9 +3,8 @@ package com.basic;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ImplementsСounting implements Сounting {
+public class Сount {
 
-    @Override
     public void countOccurance(List<String> array, String string) {
         int counter = 0;
         for (Object o : array) {
@@ -16,7 +15,6 @@ public class ImplementsСounting implements Сounting {
         System.out.println("Mетод countOccurance, п.1. завдання. Переданий рядок як другий аргумент зустрічаеться: " + counter + " разів.\n");
     }
 
-    @Override
     public void calcOccurance(List<String> array) {
         System.out.println("Mетод calcOccurance, п.4.**. завдання:");
         ArrayList<String> test = new ArrayList<>();
@@ -39,7 +37,6 @@ public class ImplementsСounting implements Сounting {
         }
     }
 
-    @Override
     public List<String> findOccurance(List<String> array) {
         ArrayList<String> test = new ArrayList<>();
         test.addAll(0, array);
@@ -61,7 +58,6 @@ public class ImplementsСounting implements Сounting {
         return testTwo;
     }
 
-    @Override
     public List<Integer> toList(int[] array) {
         List<Integer> methodList = new ArrayList<>();
         for (int i : array) {
@@ -70,7 +66,6 @@ public class ImplementsСounting implements Сounting {
         return methodList;
     }
 
-    @Override
     public List<Integer> findUnique(List<Integer> array) {
         for (int u = 0; u < array.size(); u++) {
             for (int r = u; r < array.size() - 1; r++) {

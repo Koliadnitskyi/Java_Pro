@@ -4,7 +4,7 @@ public class Record extends Act {
 
     public Record(String name, int telephone) {
         super(name, telephone);
-        Directory.testRecord.add(this);
+        Main.testRecord.add(this);
     }
 
     @Override

@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+
 public abstract class Directory {
-    static List<Record> testRecord = new ArrayList<>();
+
     private final Record record;
 
     public Directory(Record record) {
@@ -29,10 +30,6 @@ public abstract class Directory {
             }
         }
         return status;
-    }
-
-    public static void print(List<PhoneDirectory> list) {
-        list.forEach(System.out::println);
     }
 
     public static List<Integer> findAll(String nameMethodTwo, List<PhoneDirectory> listTwo) {

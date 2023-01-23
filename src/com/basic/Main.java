@@ -26,7 +26,7 @@ public class Main {
         test.add("Горілка");
         test.add("Дім");
         test.add("Пес");
-        ImplementsСounting homework = new ImplementsСounting();
+        Сount homework = new Сount();
         homework.countOccurance(test, "Дім"); // виклик методу countOccurance, п.1. завдання
 
         int[] testTwo = {2, 4, 1, 7, 7, 1};

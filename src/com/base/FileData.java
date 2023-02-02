@@ -2,17 +2,17 @@ package com.base;
 
 public class FileData implements Comparable<FileData> {
     private final String fileName;
-    private final int sizeInBytes;
+    private final int size;
     private final String pathToFile;
 
-    public FileData(String fileName, int sizeInBytes, String pathToFile) {
+    public FileData(String fileName, int size, String pathToFile) {
         this.fileName = fileName;
-        this.sizeInBytes = sizeInBytes;
+        this.size = size;
         this.pathToFile = pathToFile;
     }
 
-    public int getSizeInBytes() {
-        return sizeInBytes;
+    public int getSize() {
+        return size;
     }
 
     public String getPathToFile() {
@@ -21,11 +21,11 @@ public class FileData implements Comparable<FileData> {
 
     @Override
     public String toString() {
-        return "FileData{" + "fileName='" + fileName + '\'' + ", sizeInBytes=" + sizeInBytes + ", pathToFile='" + pathToFile + '\'' + '}';
+        return "FileData{" + "fileName='" + fileName + '\'' + ", sizeInBytes=" + size + ", pathToFile='" + pathToFile + '\'' + '}';
     }
 
     @Override
     public int compareTo(FileData o) {
-        return this.sizeInBytes - o.sizeInBytes;
+        return this.size - o.size;
     }
 }

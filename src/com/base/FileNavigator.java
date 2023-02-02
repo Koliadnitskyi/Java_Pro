@@ -10,14 +10,14 @@ public class FileNavigator {
         return directory;
     }
 
-    public static void add(FileData fail) {
+    public static void add(FileData file) {
         for (String s : directory.keySet()) {
-            if (fail.getPathToFile().equals(s)) {
-                getDirectory().get("/path/to/file").add(fail);
+            if (file.getPathToFile().equals(s)) {
+                directory.get("EntrySetOan").add(file);
             } else {
                 List<FileData> listOfFilesTwo = new ArrayList<>();
-                listOfFilesTwo.add(fail);
-                directory.put(fail.getPathToFile(), listOfFilesTwo);
+                listOfFilesTwo.add(file);
+                directory.put(file.getPathToFile(), listOfFilesTwo);
             }
         }
     }
@@ -32,12 +32,12 @@ public class FileNavigator {
         return forReturn;
     }
 
-    public static List<FileData> filterBySize(int meaning) {
+    public static List<FileData> filterBySize(int size) {
         return directory
                 .values()
                 .stream()
                 .flatMap(Collection::stream)
-                .filter(f -> f.getSizeInBytes() <= meaning)
+                .filter(f -> f.getSize() <= size)
                 .collect(Collectors.toList());
     }
 
@@ -46,29 +46,27 @@ public class FileNavigator {
     }
 
     public static List<FileData> sortBySize() {
-        Set<FileData> tmp = new TreeSet<>();
-        directory
+        return directory
                 .values()
                 .stream()
                 .flatMap(Collection::stream)
-                .forEach(tmp::add);
-        return new ArrayList<>(tmp);
+                .sorted()
+                .collect(Collectors.toList());
     }
 
     public static void add(FileData failTwo, String key) {
         if (failTwo.getPathToFile().equals(key)) {
             for (String s : directory.keySet()) {
                 if (failTwo.getPathToFile().equals(s)) {
-                    getDirectory().get("/path/to/file").add(failTwo);
+                    directory.get("EntrySetOan").add(failTwo);
                 } else {
                     List<FileData> listOfFilesTwo = new ArrayList<>();
                     listOfFilesTwo.add(failTwo);
                     directory.put(failTwo.getPathToFile(), listOfFilesTwo);
                 }
             }
-
         } else {
-            System.out.println("Error: спроба додати значення FileData значення шляху якого не відповідає шляху-ключу, що веде до списку файлів.");
+            System.out.println("Результат після виклику перевантаженого методу add: Error: спроба додати значення FileData значення шляху якого не відповідає шляху-ключу, що веде до списку файлів." + "\n");
         }
     }
 }

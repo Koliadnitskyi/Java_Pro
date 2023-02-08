@@ -47,8 +47,9 @@ public class Product {
                     .min((x, y) -> (int) (x.getPrice() - y.getPrice()))
                     .orElseThrow(() -> new MyException("Продукт Book не знайдено"));
         } catch (MyException e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
         }
+        return null;
     }
 
     public static ArrayList<Product> gettinglastThreeBooks(List<Product> goods) {

@@ -4,14 +4,14 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public class Product {
-    private final int ID;
+    private final int id;
     private final Type type;
     private final BigDecimal price;
     private final boolean isDiscount;
     private final LocalDate added;
 
-    public Product(int ID, Type type, BigDecimal price, boolean isDiscount, LocalDate added) {
-        this.ID = ID;
+    public Product(int id, Type type, BigDecimal price, boolean isDiscount, LocalDate added) {
+        this.id = id;
         this.type = type;
         this.price = price;
         this.isDiscount = isDiscount;
@@ -22,8 +22,8 @@ public class Product {
         return added;
     }
 
-    public int getID() {
-        return ID;
+    public int getId() {
+        return id;
     }
 
     public Type getType() {
@@ -41,7 +41,7 @@ public class Product {
     @Override
     public String toString() {
         return "Product{"
-                + "IDnumber=" + ID
+                + "IDnumber=" + id
                 + ", type='" + type + '\''
                 + ", price=" + price
                 + ", isDiscount=" + isDiscount

@@ -11,7 +11,7 @@ public class ProductImplementation {
     public static ArrayList<Product> getExpensiveBooks(List<Product> goods) {
         return (ArrayList<Product>) goods
                 .stream()
-                .filter(s -> s.getPrice().doubleValue() > 250)
+                .filter(s -> s.getPrice().compareTo(BigDecimal.valueOf(250)) > 0)
                 .filter(s -> s.getType().equals(Type.BOOK))
                 .collect(Collectors.toList());
     }
@@ -21,7 +21,7 @@ public class ProductImplementation {
                 .stream()
                 .filter(s -> s.getType().equals(Type.BOOK))
                 .filter(Product::isDiscount)
-                .map(r -> new Product(r.getID(), r.getType(), BigDecimal.valueOf(r.getPrice().doubleValue() - (r.getPrice().doubleValue() * 10 / 100)), r.isDiscount(), r.getAdded()))
+                .map(r -> new Product(r.getId(), r.getType(), BigDecimal.valueOf(r.getPrice().doubleValue() - (r.getPrice().doubleValue() * 10 / 100)), r.isDiscount(), r.getAdded()))
                 .collect(Collectors.toList());
     }
 
@@ -40,14 +40,8 @@ public class ProductImplementation {
     public static ArrayList<Product> gettinglastThreeBooks(List<Product> goods) {
         return (ArrayList<Product>) goods
                 .stream()
-                .sorted(Comparator.comparing(Product::getAdded))
-                .skip(goods.size() - 3)
-                /*
-                Всё же настаиваю на своём решении задачи: .skip(goods.size() - 3).
-                Добавление промежуточного оператора .limit(3) по факту не влияет на результат.
-                А добавление его в замен .skip(goods.size() - 3) приведет к выводу в консоль 3 первых а не последних добавленных товаров.
-                что будет нарушением условия задачи
-                */
+                .sorted(Comparator.comparing(Product::getAdded).reversed())
+                .limit(3)
                 .collect(Collectors.toList());
     }
 
@@ -55,9 +49,9 @@ public class ProductImplementation {
         return goods
                 .stream()
                 .filter(s -> s.getType().equals(Type.BOOK))
-                .filter(s -> s.getPrice().doubleValue() < 75)
-                .filter(s -> s.getAdded().getYear() > 2022).
-                map(Product::getPrice)
+                .filter(s -> s.getPrice().compareTo(BigDecimal.valueOf(75)) < 0)
+                .filter(s -> s.getAdded().getYear() > 2022)
+                .map(Product::getPrice)
                 .reduce(BigDecimal.valueOf(0.0), BigDecimal::add);
     }
 

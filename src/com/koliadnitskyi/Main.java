@@ -2,6 +2,7 @@ package com.koliadnitskyi;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
@@ -29,7 +30,7 @@ public class Main {
                                 + popularWord
                                 + ". Количество уникальных слов: "
                                 + numberOfUniqueWords, "Statistics " + path);
-                    } catch (FileNotFoundException e) {
+                    } catch (IOException e) {
                         System.out.println("Возникла проблема с чтением файла: " + path);
                     }
                 } else {

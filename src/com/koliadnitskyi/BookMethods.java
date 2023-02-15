@@ -1,42 +1,43 @@
 package com.koliadnitskyi;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class BookMethods {
 
-    private static Stream<String> gettingAllWords(String path) throws FileNotFoundException {
-        return new BufferedReader(new FileReader(path))
-                .lines()
-                .map(x -> x.split(" "))
-                .flatMap(Arrays::stream)
-                .map(s -> s
-                        .replace(",", "")
-                        .replace(".", "")
-                        .replace("..", "")
-                        .replace("...", "")
-                        .replace(";", "")
-                        .replace(":", "")
-                        .replace("?", "")
-                        .replace("!", "")
-                        .replace("(", "")
-                        .replace(")", "")
-                        .replace("!..", "")
-                        .replace("«", "")
-                        .replace("»", ""))
-                .map(String::toLowerCase);
+    private static Stream<String> gettingAllWords(String path) throws IOException {
+        try (FileReader tmp = new FileReader(path)){
+            return new BufferedReader(tmp)
+                    .lines()
+                    .map(x -> x.split(" "))
+                    .flatMap(Arrays::stream)
+                    .map(s -> s
+                            .replace(",", "")
+                            .replace(".", "")
+                            .replace("..", "")
+                            .replace("...", "")
+                            .replace(";", "")
+                            .replace(":", "")
+                            .replace("?", "")
+                            .replace("!", "")
+                            .replace("(", "")
+                            .replace(")", "")
+                            .replace("!..", "")
+                            .replace("«", "")
+                            .replace("»", ""))
+                    .map(String::toLowerCase);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    private static Stream<String> gettingNumberOfWords(String path) throws FileNotFoundException {
+    private static Stream<String> gettingNumberOfWords(String path) throws IOException {
         return gettingAllWords(path).distinct();
     }
 
-    public static List<Map.Entry<String, Integer>> gettingPopularWord(String path) throws FileNotFoundException {
+    public static List<Map.Entry<String, Integer>> gettingPopularWord(String path) throws IOException {
         List<String> gettingAllUniqueWordsMoreThanTwo = gettingNumberOfWords(path).distinct().filter(s -> s.length() > 2).toList();
         List<String> gettingAllWordsMoreThanTwo = gettingAllWords(path).filter(s -> s.length() > 2).toList();
 
@@ -59,7 +60,7 @@ public class BookMethods {
                 .limit(10).collect(Collectors.toList());
     }
 
-    public static int gettingNumberOfUniqueWords(String path) throws FileNotFoundException {
+    public static int gettingNumberOfUniqueWords(String path) throws IOException {
         return (int) gettingNumberOfWords(path).distinct().count();
     }
     public static void writingToFile(String data, String name) {

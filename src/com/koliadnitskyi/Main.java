@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class Main {
     private static final String popularWordsStr = "10 самых популярных слов которые имеют больше 2 символов: ";
     private static final String numberOfUniqueWordsStr = ". Количество уникальных слов: ";
-    private static final String reEntryStr = "Введите имя книги снова или введите end для прекращения работы.";
+    private static final String reEntryStr = "Введите имя книги или введите End для прекращения работы.";
 
     public static void main(String[] args) {
         Scanner bookName = new Scanner(System.in);

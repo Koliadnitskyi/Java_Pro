@@ -28,8 +28,7 @@ public class Main {
                         BookMethods.writingToFile("10 самых популярных слов которые имеют больше 2 символов: "
                                 + popularWord
                                 + ". Количество уникальных слов: "
-                                + numberOfUniqueWords
-                                + "\nВведите имя книги снова или введите End для прекращения работы.", "Statistics " + path);
+                                + numberOfUniqueWords, "Statistics " + path);
                     } catch (FileNotFoundException e) {
                         System.out.println("Возникла проблема с чтением файла: " + path);
                     }

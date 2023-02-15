@@ -1,7 +1,7 @@
 package com.koliadnitskyi;
 
 import java.io.File;
-import java.io.IOException;
+import java.io.FileNotFoundException;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
@@ -26,11 +26,12 @@ public class Main {
                         int numberOfUniqueWords = BookMethods.gettingNumberOfUniqueWords(String.valueOf(path));
                         System.out.println(popularWordsStr + popularWord + numberOfUniqueWordsStr + numberOfUniqueWords + "\n" + reEntryStr);
                         BookMethods.writingToFile(popularWordsStr + popularWord + numberOfUniqueWordsStr + numberOfUniqueWords, "Statistics " + path);
-                    } catch (IOException e) {
+                    } catch (FileNotFoundException e) {
                         System.out.println("Возникла проблема с чтением файла: " + path);
                     }
                 } else {
                     System.out.println("Такой книги нет. " + reEntryStr);
+
                 }
             }
         }

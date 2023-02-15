@@ -63,7 +63,7 @@ public class BookMethods {
         return (int) gettingNumberOfWords(path).distinct().count();
     }
     public static void writingToFile(String data, String name) {
-        try (PrintWriter savingStatisticalData = new PrintWriter(name + ".txt")){
+        try (PrintWriter savingStatisticalData = new PrintWriter(name)){
             savingStatisticalData.println(data);
         } catch (FileNotFoundException e) {
             System.out.println("Не удалось записать данные в файл");;

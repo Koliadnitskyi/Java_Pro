@@ -34,13 +34,8 @@ public class BookMethods {
             throw new RuntimeException(e);
         }
     }
-
-    private static Stream<String> gettingNumberOfWords(String path) throws IOException {
-        return gettingAllWords(path).distinct();
-    }
-
     public static List<Map.Entry<String, Integer>> gettingPopularWord(String path) throws IOException {
-        List<String> gettingAllUniqueWordsMoreThanTwo = gettingNumberOfWords(path)
+        List<String> gettingAllUniqueWordsMoreThanTwo = gettingAllWords(path)
                 .distinct()
                 .filter(s -> s.length() > 2)
                 .toList();
@@ -69,7 +64,7 @@ public class BookMethods {
     }
 
     public static int gettingNumberOfUniqueWords(String path) throws IOException {
-        return (int) gettingNumberOfWords(path)
+        return (int) gettingAllWords(path)
                 .distinct()
                 .count();
     }

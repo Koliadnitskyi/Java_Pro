@@ -25,7 +25,6 @@ public class BookMethods {
                         .replace(":", "")
                         .replace("?", "")
                         .replace("!", "")
-                        .replace("(", "")
                         .replace("!..", "")
                         .replace("«", "")
                         .replace("»", ""))

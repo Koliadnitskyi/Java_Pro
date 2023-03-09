@@ -20,7 +20,6 @@ public class BookMethods {
                 .flatMap(Arrays::stream)
                 .map(s -> s
                         .replace(",", "")
-                        .replace(".", "")
                         .replace("..", "")
                         .replace("...", "")
                         .replace(";", "")
